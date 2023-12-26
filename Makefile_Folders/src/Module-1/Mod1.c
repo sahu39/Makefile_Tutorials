@@ -3,6 +3,7 @@
 
 int main()
 {
+	int a = 10;
 	printf("%lf\n",sqrt(15.0));
 	return 0;
 }
