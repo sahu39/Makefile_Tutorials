@@ -1,13 +1,19 @@
-INPUT = Mod1.c
-OUTPUT = ../../bins/Mod1_bin
-OBJ1 = ../../objs/Mod1.o
-CFLAGS = -Wall -Werror
+MODULE_NAME = mod1
 
-#1st dependeny from INPUT is $(<) for all dependency $(^)
-#output for all dependency $(@)
-#-Wall = warning
-#-Werror = error enable
-$(OUTPUT) : $(OBJ1)
-	gcc $< -o $@ -lm
-$(OBJ1) : $(INPUT)
-	gcc $(CFLAGS) -c $< -o $@
+TARGET_DIR = ../../bins
+TARGET_NAME = mod1_bin
+TARGET = $(TARGET_DIR)/$(TARGET_NAME)
+
+OBJ_DIR = ../../objs
+OBJ1 = $(OBJ_DIR)/$(MODULE_NAME).o
+
+CFLAGS = -Wall -Werror
+LDFLAGS = -lm
+
+$(TARGET) : $(OBJ1)
+	g++ $< -o $@ $(LDFLAGS)
+$(OBJ1) : $(MODULE_NAME).cpp
+	g++ $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -rf $(OBJ1) $(TARGET) 
