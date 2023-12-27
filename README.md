@@ -1,6 +1,6 @@
 # Makefile_Tutorials
 Makefile related tutorials
-
+link:https://stackoverflow.com/questions/480764/linux-error-while-loading-shared-libraries-cannot-open-shared-object-file-no-s
 Module-2 Makefile Running steps:
 =====================================
 1st:(Running make to create libraries and test binary)
