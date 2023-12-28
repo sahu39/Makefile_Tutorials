@@ -67,3 +67,28 @@ km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-3$ ../
 .so implementation:fun2()
 
 =====================================
+
+
+
+Module-4 Makefile Running steps:
+=================================
+1st:(Running Make for module-4)
+===
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-4$ make
+g++ -Wall -Werror -c mod4.cpp -o ../../objs/mod4.o
+#g++ ../../objs/mod4.o -o ../../libs/libmod4.a 
+ar rcs ../../libs/libmod4.a ../../objs/mod4.o
+
+2nd:(Checking static library is created or not):
+===
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-4$ ls -l ../../libs/
+total 4
+-rw-rw-r-- 1 km km 2930 Dec 28 16:20 libmod4.a
+
+=================================
+
+
+
+
+
+
