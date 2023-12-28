@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../Module-2/mod2.h"
+#include "mod2.h"
 
 int main()
 {

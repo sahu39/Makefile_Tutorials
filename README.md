@@ -58,8 +58,11 @@ make: Leaving directory '/home/km/Desktop/Makefile_Tutorials/Makefile_Folders/sr
 3rd:(Run the Makefile for Module-3)
 =====
 km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-3$ make
-g++ -Wall -Werror -c mod3.cpp -o ../../objs/mod3.o
+g++ -Wall -Werror -I../../shared_headers -c mod3.cpp -o ../../objs/mod3.o
 g++ ../../objs/mod3.o -o ../../bins/mod3_bin -L../../libs -lmod2
+
+4th:(Run the binary for test):
+================================
 km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-3$ ../../bins/mod3_bin 
 .so implementation:fun2()
 

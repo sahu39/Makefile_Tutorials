@@ -8,8 +8,8 @@ OBJ_DIR = ../../objs
 OBJ1 = $(OBJ_DIR)/$(MODULE_NAME).o
 LIBS_PATH = ../../libs
 
-
-CFLAGS = -Wall -Werror
+INC_PATH = ../../shared_headers
+CFLAGS = -Wall -Werror -I$(INC_PATH)
 LDFLAGS = -L$(LIBS_PATH) -lmod2
 
 $(TARGET) : $(OBJ1)
