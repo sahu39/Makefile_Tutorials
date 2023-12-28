@@ -85,6 +85,29 @@ km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-4$ ls 
 total 4
 -rw-rw-r-- 1 km km 2930 Dec 28 16:20 libmod4.a
 
+Error while compiling test_mod4.cpp:
+=================================
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-4$ ls
+Makefile  mod4.cpp  mod4.h  test_mod4.cpp
+
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-4$ g++ test_mod4.cpp -o test_mod4
+/tmp/ccWxsvI1.o: In function `main':
+test_mod4.cpp:(.text+0x2d): undefined reference to `fun4()'
+collect2: error: ld returned 1 exit status
+
+Solution to resolve the error is link the library while compilation:
+===================================================================
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-4$ g++ test_mod4.cpp -o test_mod4 -L../../libs -lmod4
+
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-4$ ls
+Makefile  mod4.cpp  mod4.h  test_mod4  test_mod4.cpp
+
+Run the test_mod4 binary:
+==========================
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-4$ ./test_mod4 
+Testing Module-4
+Inside fun4()
+
 =================================
 
 
