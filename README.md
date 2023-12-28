@@ -33,5 +33,34 @@ km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/test_build$ expor
 -----
 km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/test_build$ ./test_mod2 
 .so implementation:fun2()
+=================================
 
 
+
+Module-3 Makefile Running steps:
+=================================
+1st:(Run the Makefile in Module-2)
+====
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-3$ make -C ../Module-2
+make: Entering directory '/home/km/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-2'
+g++ -fPIC -Wall -Werror -c mod2.cpp -o ../../objs/mod2.o
+g++ -shared ../../objs/mod2.o -o ../../libs/libmod2.so 
+make: Leaving directory '/home/km/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-2'
+
+2nd:(Install the mod-2 library into /usr/lib/ folder)
+====
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-3$ make -C ../Module-2 install
+make: Entering directory '/home/km/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-2'
+sudo cp ../../libs/libmod2.so /usr/lib/
+cp *.h ../../shared_headers
+make: Leaving directory '/home/km/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-2'
+
+3rd:(Run the Makefile for Module-3)
+=====
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-3$ make
+g++ -Wall -Werror -c mod3.cpp -o ../../objs/mod3.o
+g++ ../../objs/mod3.o -o ../../bins/mod3_bin -L../../libs -lmod2
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-3$ ../../bins/mod3_bin 
+.so implementation:fun2()
+
+=====================================

@@ -25,3 +25,8 @@ test:
 
 clean:
 	rm -rf $(OBJ1) $(TARGET) $(TEST_BIN_DIR) 
+	sudo rm -rf /usr/lib/lib$(MODULE_NAME).so
+install:
+	sudo cp $(TARGET) /usr/lib/
+	cp *.h ../../shared_headers
+
