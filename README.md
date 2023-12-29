@@ -156,4 +156,22 @@ Inside fun4()
 
 ================================
 
+Note For Makefile:
+===================
+
+
+				Source Code(Sample.c)
+					|
+			compiler	| -c
+		       -Wall -Werror	|
+					|
+				   object file
+					|
+			Linker		|  <---linker flags
+					|    (-lm -lzmq -lcurl -lxyz)
+					|
+				   Executable
+
+	gcc $(CFLAGS) -c $< -o $@
+	gcc $< -o $@ $(LDFLAGS)	
 
