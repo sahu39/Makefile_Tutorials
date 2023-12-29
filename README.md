@@ -33,6 +33,9 @@ km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/test_build$ expor
 -----
 km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/test_build$ ./test_mod2 
 .so implementation:fun2()
+
+
+
 =================================
 
 
@@ -113,5 +116,44 @@ Inside fun4()
 
 
 
+Module-5 Makefile Running steps:
+================================
+1st:(install the Module-2 library)
+====
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-5$ make -C ../Module-2/ install
+make: Entering directory '/home/km/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-2'
+sudo cp ../../libs/libmod2.so /usr/lib/
+[sudo] password for km: 
+cp *.h ../../shared_headers
+make: Leaving directory '/home/km/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-2'
+
+2nd:(install the Module-4 library)
+====
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-5$ make -C ../Module-4
+make: Entering directory '/home/km/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-4'
+make: '../../libs/libmod4.a' is up to date.
+make: Leaving directory '/home/km/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-4'
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-5$ make -C ../Module-4 install
+make: Entering directory '/home/km/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-4'
+cp mod4.h ../../shared_headers
+make: Leaving directory '/home/km/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-4'
+
+3rd:(Run the mod5_bin)
+====
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-5$ ls ../../shared_headers/
+mod2.h  mod4.h
+
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-5$ make
+g++ -Wall -Werror -I../../shared_headers -c mod5.cpp -o ../../objs/mod5.o
+g++ ../../objs/mod5.o -o ../../bins/mod5_bin -L../../libs -lmod2 -lmod4
+
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/Module-5$ ../../bins/mod5_bin 
+Module-5 Tutorial
+.so implementation:fun2()
+Inside fun4()
+
+
+
+================================
 
 

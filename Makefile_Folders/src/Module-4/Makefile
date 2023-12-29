@@ -22,3 +22,5 @@ test:
 	g++ $(TARGET_NAME) -o $(TARGET_BIN) $(LDFLAGS)
 clean:
 	rm -rf $(OBJ1) $(TARGET) 
+install:
+	cp mod4.h ../../shared_headers
