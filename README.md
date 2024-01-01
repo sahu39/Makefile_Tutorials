@@ -196,3 +196,52 @@ a.out  macro_eg.c
 km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/MACRO$ ./a.out 
 Sunil
 
+
+=====================================================================
+
+
+= vs :=
+=======
+
+=------------>Lazy Initialization
+:=----------->Instant Intialization
+
+Makefile:
+-----------
+  1 VAR1 = 10----->Lazy Initializtion
+  2 VAR2 = 20
+  3 
+  4 VAR1 = $(VAR1) 1000
+  5 
+  6 default:
+  7         echo $(VAR1)-------->Here when $(VAR1) is called the initializtion happens from here so lazy initializtion
+
+
+op:
+---
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/eq_ceq$ make
+Makefile:4: *** Recursive variable 'VAR1' references itself (eventually).  Stop.
+
+
+
+Makefile:
+---------------
+  1 VAR1 = 10
+  2 VAR2 = 20
+  3 
+  4 VAR1 := $(VAR1) 1000------>Instant initilization of VAR1 
+  5 
+  6 default:
+  7         echo $(VAR1)
+
+op:
+-----
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/eq_ceq$ make
+echo 10 1000
+10 1000
+
+
+
+
+
+
