@@ -175,3 +175,24 @@ Note For Makefile:
 	gcc $(CFLAGS) -c $< -o $@
 	gcc $< -o $@ $(LDFLAGS)	
 
+
+
+How to define header outside and compile:
+==========================================
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/MACRO$ gcc macro_eg.c
+macro_eg.c: In function ‘main’:
+macro_eg.c:5:16: error: ‘MY_MACRO’ undeclared (first use in this function)
+  printf("%s\n",MY_MACRO);
+                ^~~~~~~~
+macro_eg.c:5:16: note: each undeclared identifier is reported only once for each function it appears in
+
+
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/MACRO$ gcc -DMY_MACRO=\"Sunil\" macro_eg.c 
+
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/MACRO$ ls
+a.out  macro_eg.c
+
+
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/MACRO$ ./a.out 
+Sunil
+
