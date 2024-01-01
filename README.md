@@ -242,6 +242,53 @@ echo 10 1000
 
 
 
+=====================================================================
+
+PHONY TARGET:
+============
+Makefile:(Without PHONY Target)
+-----------
+  1 VAR1 = 10
+  2 VAR2 = 20
+  3 
+  4 VAR1 := $(VAR1) 1000
+  5 
+  6 default:
+  7         echo $(VAR1)
+
+
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/eq_ceq$ touch default
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/eq_ceq$ ls
+default  Makefile
+
+op:(As physical target 'default' is already exist we are getting below message when we are running make)
+----
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/eq_ceq$ make
+make: 'default' is up to date.
+
+
+
+Makefile:(With PHONY Target)
+---------
+  1 VAR1 = 10
+  2 VAR2 = 20
+  3 
+  4 VAR1 := $(VAR1) 1000
+  5 
+  6 default:
+  7         echo $(VAR1)
+  8 
+  9 .PHONY: default
+
+op:
+---
+km@KernelMasters:~/Desktop/Makefile_Tutorials/Makefile_Folders/src/eq_ceq$ make
+echo 10 1000
+10 1000
+                    
+
+======================================================================
+
 
 
 

@@ -5,3 +5,5 @@ VAR1 := $(VAR1) 1000
 
 default:
 	echo $(VAR1)
+
+.PHONY: default
